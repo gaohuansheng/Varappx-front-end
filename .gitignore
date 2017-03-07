@@ -1,0 +1,17 @@
+node_modules/
+dist/
+backup/
+.sass-cache/
+.idea
+varapp-browser-ng.iml
+
+*.DS_Store
+
+app/bower_components
+
+build
+dist
+
+npm-debug.log
+
+test-reports

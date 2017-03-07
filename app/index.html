@@ -1,0 +1,75 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta content="text/html">
+    <title>Varapp browser</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- (gulp-useref build blocks) -->
+
+    <!-- build:css styles/vendor.css -->
+    <link rel="stylesheet" href="styles/fixed-data-table-base.css">
+    <link rel="stylesheet" href="styles/fixed-data-table-style.css">
+    <link rel="stylesheet" href="styles/toastr.css">  <!-- Warning/error windows module -->
+    <link rel="stylesheet" href="styles/varapp-font.css">  <!-- Custom genotypes sprites -->
+    <link rel="stylesheet" type="text/css" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css">  <!-- For IGV.js -->
+    <link rel="stylesheet" type="text/css" href="bower_components/components-font-awesome/css/font-awesome.min.css">  <!-- For IGV.js -->
+    <link rel="stylesheet" type="text/css" href="styles/igv-1.0.1.css">  <!-- For IGV.js -->
+    <!-- endbuild -->
+
+    <link rel="stylesheet" href="styles/main.css">  <!-- Result of gulp compiling all css/scss files -->
+    <!--<link rel="stylesheet" href="styles/bundle.css">-->
+
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+
+</head>
+<body>
+
+<div class='container-fluid'>
+    <div id="app-container"></div>
+    <div id="footer">
+    <span class='footer-text footer-left'>Copyright
+       <a class='external-link' href='http://gemini.readthedocs.org'>GPZ-byinfo</a>
+    </span>
+    <span class='footer-text footer-left'>|</span>
+    <span class='footer-text footer-left'>
+        <a id='docs-link' href="http://varapp-demo.vital-it.ch/docs" target="_blank">Documentation</a>
+    </span>
+    <span class='footer-text footer-left'>|</span>
+    <span class='footer-text footer-left'>
+        <a id='github-link' href="https://github.com/444thLiao/VarappX" target="_blank">Github</a>
+    </span>
+    <span class='footer-text footer-right pull-right'>
+       <a id='contact-link' target="_top"
+          href="mailto:905564616@qq.com?Subject=Varappx contact-info-help"
+       >Contact</a>
+    </span>
+    </div>
+</div>
+
+
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script async defer src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+<!-- endbower -->
+<script async defer type="text/javascript" src="igv/igv-1.0.1.js"></script>
+<!-- endbuild -->
+
+<script src="conf/conf.js"></script>
+<script src="scripts/app.js"></script>
+
+</body>
+</html>
