@@ -36,7 +36,7 @@ class GenotypesFilter extends React.Component {
             .map(function (Filterpanel) {
                 var key = _this.props.name + '-' + Filterpanel;
                 var checked = value === Filterpanel;
-                console.log(value);
+                //console.log(value);
                 return (
                     <div className="genotypes-filter-choices" key={key}>
                         {/*<div className="filter-name genotypes-filter-name">{nameStr}</div>*/}

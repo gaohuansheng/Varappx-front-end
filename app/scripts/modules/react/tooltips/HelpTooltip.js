@@ -15,10 +15,6 @@ var HelpTooltip = React.createClass({
         var name = this.props.name;   // the field name in HelpTooltipDescriptions
         var category = this.props.category;  // the category in HelpTooltipDescriptions
         var placement = this.props.placement || 'right';
-        console.log(name);
-        console.log(category);
-        console.log(name);
-        console.log(descriptions);
         if ((category in descriptions) && (name in descriptions[category])) {
             var description = descriptions[category][name];
             var tooltip = <Popover id='help-tooltip-overlay'>{description}</Popover>;
