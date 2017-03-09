@@ -68,6 +68,7 @@ var Filters = React.createClass({
 
     /* When filters change, query new variants, then update the view */
     _onDataChange: function() {
+        console.debug("Filters: trigger DataChange")
         this.setState({
             filterByGroup: FilterStore.getFilterCollection().byGroup(),
             count: FilterStore.getFilterCollection().getCounts(),

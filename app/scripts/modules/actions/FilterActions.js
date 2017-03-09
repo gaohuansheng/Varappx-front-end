@@ -3,6 +3,8 @@ var dispatcher = require('../dispatcher/Dispatcher');
 var FilterConstants = require('../constants/FilterConstants');
 var ApiConstants = require('../constants/ApiConstants');
 var RestService = require('../utils/RestService');
+var VariantConstants = require('../constants/VariantConstants')
+
 
 var FilterActions = {
 
@@ -58,12 +60,23 @@ var FilterActions = {
     /* Sync */
 
     updateOneFilterValue: function(field, value){
+        var Api = require('../utils/Api.js');
+        var VariantActions = require('./VariantActions')
         //console.log("ACTION updateOneFilterValue", field, value);
+        console.log(field,value);
         dispatcher.dispatch({
             actionType: FilterConstants.ACTION_UPDATE_ONE_FILTER_VALUE,
+            //state: ApiConstants.SUCCESS,
             field: field,
             value: value
         });
+
+    },
+    updateOtherFilters: function(){
+            dispatcher.dispatch({
+                    actionType: FilterConstants.UPDATE_FILTERS_WITH_PATNELS
+
+    });
     },
 
     filtersReset: function(){
@@ -74,4 +87,7 @@ var FilterActions = {
     },
 
 };
+
+
+
 module.exports = FilterActions;

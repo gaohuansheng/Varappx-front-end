@@ -26,7 +26,15 @@ class GenotypesFilter extends React.Component {
     onChange(e) {
         var value = e.target.value;
         this.setState({value: value});  // change checked state right away
+        FilterActions.filtersReset()
         FilterActions.updateOneFilterValue(this.props.field, value);
+        if (value !== 'none') {
+        setTimeout(function(){
+            FilterActions.updateOtherFilters();
+        }
+        ,500);
+        };
+
     }
 
     render() {

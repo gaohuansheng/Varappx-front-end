@@ -198,6 +198,7 @@ class VariantStore extends BaseStore {
      * - Loading the next batch of 1000 or so variants.
      **/
     _registerToActions(payload) {
+        console.debug('receving variantstore,',payload.actionType)
         switch (payload.actionType) {
 
             case VariantConstants.ACTION_FETCH_VARIANTS:

@@ -116,6 +116,7 @@ var App = React.createClass({
      * Give priority to parameters passed by URL, and read localStorage for the rest.
      **/
     _initStores: function(db) {
+        console.debug("App.js :: init appstore");
         if (AppStore.storesReady() || AppStore.isLoadingStores()) {
             return;
         }
@@ -149,6 +150,7 @@ var App = React.createClass({
     },
     /*  */
     _onUrlChange: function() {
+        console.debug("App.js :: Trigger urlchange");
         var path = this.props.location.pathname;
         if (path === '/' && AppStore.storesReady()) {
             var query = RouterStore.getQuery();
@@ -158,6 +160,7 @@ var App = React.createClass({
     /* Happens when the user changes the db (not at startup, where it is read from storage/url)
        or uses a bookmark (same db, but changes stores state) */
     _onAppChange: function () {
+        console.debug("App.js :: Trigger appchange");
         var newDb = AppStore.getDb();
         this.setState({
             db: newDb,
@@ -169,6 +172,7 @@ var App = React.createClass({
     /* Happens on every filter/sample change, because it renews the JWT,
        and also at login - page refresh */
     _onUserChange: function () {
+        console.debug("App.js :: Trigger userchange");
         var user = LoginStore.getUser();
         var loginStatus = LoginStore.getStatus();
         var path = this.props.location.pathname;

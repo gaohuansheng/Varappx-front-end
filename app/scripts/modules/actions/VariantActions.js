@@ -4,6 +4,7 @@ var VariantConstants = require('../constants/VariantConstants');
 var ApiConstants = require('../constants/ApiConstants');
 var RestService = require('../utils/RestService');
 var ROW_BATCH_SIZE = VariantConstants.ROW_BATCH_SIZE;
+var FilterConstants = require('../constants/FilterConstants')
 
 var VariantActions = {
 
@@ -19,6 +20,7 @@ var VariantActions = {
             .then(function(data) {
                 dispatcher.dispatch({
                     actionType: VariantConstants.ACTION_FETCH_VARIANTS,
+                    //actionType: FilterConstants.UPDATE_FILTERS_WITH_PATNELS,
                     state: ApiConstants.SUCCESS,
                     data: data,
                 });
@@ -31,6 +33,7 @@ var VariantActions = {
                 });
             });
     },
+
 
     loadNextRowBatch: function(db, offset, variantUrlArgs) {
         dispatcher.dispatch({
