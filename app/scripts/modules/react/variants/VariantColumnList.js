@@ -18,6 +18,7 @@ var formatters = require('../../utils/formatters.js');
 var FREQ_WIDTH = 80;  // Frequencies and p-values, with scientific formatting
 var SCORE_WIDTH = 80; // Numbers in reasonable ranges, such as 0:1
 var INTEGER_WIDTH = 60;
+var DEPTHS_WIDTH = 100;
 
 var TYPES = {
     BASIC: 'Basic',
@@ -450,14 +451,17 @@ var COLUMN_DEF = {
     allele_freq: {
         key: "allele_freq",
         order: 305,
-        label: "Allele frequency",
+        label: "Allele frequency (N/T)",
         width: FREQ_WIDTH,
         minWidth: FREQ_WIDTH,
         flexGrow: 1,
         dataKey: "allele_freq",
-        cellRenderer: formatters.formatScientific,
+        align:"center",
+        sortable: false,
+        cellRenderer: formatters.formatAF,
         type: TYPES.FREQUENCY
     },
+
     allele_count: {
         key: "allele_count",
         order: 306,
@@ -467,6 +471,46 @@ var COLUMN_DEF = {
         flexGrow: 1,
         dataKey: "allele_count",
         cellRenderer: formatters.formatInteger,
+        type: TYPES.FREQUENCY
+    },
+
+    allele_freq_raws:{
+        key: "allele_freq_raws",
+        order: 307,
+        label: "Allele frequency raws(N/T)",
+        width: FREQ_WIDTH,
+        minWidth: FREQ_WIDTH,
+        flexGrow: 1,
+        dataKey: "allele_freq_raws",
+        align:"center",
+        sortable: false,
+        cellRenderer: formatters.formatAF,
+        type: TYPES.FREQUENCY
+    },
+        allele_depths:{
+        key: "allele_depths",
+        order: 307,
+        label: "Allele depths(N/T)",
+        width: FREQ_WIDTH,
+        minWidth: FREQ_WIDTH,
+        flexGrow: 1,
+        dataKey: "allele_depths",
+        align:"center",
+        sortable: false,
+        cellRenderer: formatters.formatAD,
+        type: TYPES.FREQUENCY
+    },
+        allele_depths_raws:{
+        key: "allele_depths_raws",
+        order: 307,
+        label: "Allele depths raws(N/T)",
+        width: FREQ_WIDTH,
+        minWidth: FREQ_WIDTH,
+        flexGrow: 1,
+        dataKey: "allele_depths_raws",
+        align:"center",
+        sortable: false,
+        cellRenderer: formatters.formatAD,
         type: TYPES.FREQUENCY
     },
 

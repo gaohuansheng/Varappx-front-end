@@ -98,7 +98,7 @@ var ColumnsSelection = React.createClass({
         return (
             <DropdownButton id='select-columns-button' bsStyle='primary' title="Select columns"
                 onSelect={preventDefault} onClick={preventDefault}>
-                <div className='container select-columns-container' style={{overflow:'auto', marginBottom: '5px'}}>
+                <div className='container select-columns-container' style={{overflow:'auto', marginBottom: '5px', width: '1000px'}}>
                 <div className='row'>
                     <div className='col-sm-3'>{selectColsMenuItems.slice(0,N)}</div>
                     <div className='col-sm-3'>{selectColsMenuItems.slice(N,2*N)}</div>

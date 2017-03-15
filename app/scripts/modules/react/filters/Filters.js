@@ -100,7 +100,7 @@ var Filters = React.createClass({
         /* Build a list of FilterGroups */
         var groupElements = _.map(_this.state.filterByGroup, function (group, i) {
             var filters = _.map(group.filters, function (of, idx) {
-                console.log(of,idx);
+                //console.log(of,idx);
                 var e = React.createElement(filterClass[of.type], {
                     key: 'filter-' + group.name + '-' + idx,
                     idxFilter: idx,

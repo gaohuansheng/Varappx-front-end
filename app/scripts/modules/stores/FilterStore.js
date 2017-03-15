@@ -118,7 +118,7 @@ class FilterStore extends BaseStore {
         }*/
         /* Some must have a value anyways */
         if (_filterCollection.getValue('genotype') === undefined) {
-            _filterCollection.setValue('genotype', 'active');
+            _filterCollection.setValue('genotype', 'none');
         }
         this.updateGlobalStats();
     }
