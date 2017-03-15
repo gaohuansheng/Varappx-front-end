@@ -65,6 +65,7 @@ class VariantStore extends BaseStore {
     }
 
     init(db, order_by, columns) {
+        console.debug('init variatnStore')
         this._db = db;
         this.data = {variants: null, stats: null, selectedVariants: []};
         this.sortDirection = null;

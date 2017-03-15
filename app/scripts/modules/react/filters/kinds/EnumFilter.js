@@ -16,6 +16,7 @@ var ENUMS = {
     'pass_filter': ['PASS','LowQual'],
     'polyphen_pred': ['probably_damaging','possibly_damaging','benign','unknown'],
     'sift_pred': ['deleterious','deleterious_low_confidence','tolerated_low_confidence','tolerated'],
+    'clinvar_sig':['pathogenic','likely-benign','not-provided'],
 };
 
 

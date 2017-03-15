@@ -103,6 +103,7 @@ var App = React.createClass({
         }
     },
     componentWillUnmount: function () {
+        console.log('componentWillUnmount')
         LoginStore.removeChangeListener(this._onUserChange);
         AppStore.removeChangeListener(this._onAppChange);
         VariantsLoaderStore.removeChangeListener(this._loadVariants);

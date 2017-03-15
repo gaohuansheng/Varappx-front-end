@@ -61,9 +61,7 @@ var FilterActions = {
 
     updateOneFilterValue: function(field, value){
         var Api = require('../utils/Api.js');
-        var VariantActions = require('./VariantActions')
-        //console.log("ACTION updateOneFilterValue", field, value);
-        console.log(field,value);
+        var VariantStore = require('../stores/VariantStore')
         dispatcher.dispatch({
             actionType: FilterConstants.ACTION_UPDATE_ONE_FILTER_VALUE,
             //state: ApiConstants.SUCCESS,

@@ -62,7 +62,7 @@ class VariantsLoaderStore extends BaseStore {
             case VariantConstants.ACTION_FETCH_VARIANTS:
                 if (payload.state === ApiConstants.SUCCESS
                  || payload.state === ApiConstants.ERROR) {
-                    console.log("VariantsLoaderStore :: ACTION_FETCH_VARIANTS");
+                    //console.log("VariantsLoaderStore :: ACTION_FETCH_VARIANTS");
                     this.changed = {samples: false, filters: false, order: false};
                 }
                 break;
