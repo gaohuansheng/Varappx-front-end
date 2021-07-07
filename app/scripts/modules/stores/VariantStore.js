@@ -65,6 +65,7 @@ class VariantStore extends BaseStore {
     }
 
     init(db, order_by, columns) {
+        console.debug('init variatnStore')
         this._db = db;
         this.data = {variants: null, stats: null, selectedVariants: []};
         this.sortDirection = null;
@@ -198,6 +199,7 @@ class VariantStore extends BaseStore {
      * - Loading the next batch of 1000 or so variants.
      **/
     _registerToActions(payload) {
+        console.debug('receving variantstore,',payload.actionType)
         switch (payload.actionType) {
 
             case VariantConstants.ACTION_FETCH_VARIANTS:

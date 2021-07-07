@@ -120,8 +120,14 @@ FilterCollection.prototype.getProperty = function (filterName, field) {
  **/
 FilterCollection.prototype.setValue = function (filterName, value) {
     var _this = this;
-    _this._filters[filterName].value = value;
-    return _this;
+    if (_this._filters[filterName] === undefined){
+        return _this
+    }
+    else {
+        this._filters[filterName].value = value;
+        return _this;
+    }
+
 };
 
 /** @memberOf FilterCollection.prototype
@@ -130,7 +136,13 @@ FilterCollection.prototype.setValue = function (filterName, value) {
  * @returns {*} the filter value
  **/
 FilterCollection.prototype.getValue = function (filterName) {
-    return this._filters[filterName].value;
+    if (this._filters[filterName] !== undefined) {
+        return this._filters[filterName].value;
+    }
+    else {
+
+        return undefined
+    }
 };
 
 FilterCollection.prototype.setGlobalStats = function (stats) {

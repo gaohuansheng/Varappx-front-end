@@ -18,7 +18,7 @@ var stripDebug = require('gulp-strip-debug');  // To remove console.log statemen
 var minifyCSS = require('gulp-minify-css');
 var concat = require('gulp-concat');
 
-//require('harmonize')();
+require('harmonize')();
 
 var del = require('del');                 // To 'delete files/folders using globs'
 var path = require('path');               // Path string manipulations

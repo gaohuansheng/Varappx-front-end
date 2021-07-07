@@ -40,7 +40,11 @@ const DESC = {
     "read_pos_rank_sum": "Z-score From Wilcoxon rank sum test for site position within reads (position within reads supporting REF vs. position within reads supporting ALT).",
     "strand_bias_odds_ratio": "Symmetric Odds Ratio of 2x2 contingency table to detect strand bias.",
     "allele_count": "Total number of times this allele appears across all samples (VCF AC field).",
-    "allele_freq": "Allele frequency across all samples (VCF AF field)."
+    "allele_freq": "Allele frequency across all samples (VCF AF field).",
+    "allele_freq_raws": "Allele frequency which is raw for the normal and tumor in the order listed.",
+    "allele_depths":"Allele depths for the normal and tumor in the order listed. Each is ref and alt in the order listed.",
+    "allele_depths_raws":"Allele depths which is raw for the normal and tumor in the order listed. Each is ref and alt in the order listed.",
+
 };
 
 module.exports = DESC;

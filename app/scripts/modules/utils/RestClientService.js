@@ -73,7 +73,7 @@ RestClientService.prototype.reportError = function(err, uri) {
  * @returns {*}
  */
 RestClientService.prototype.get = function(uri){
-    //console.log("RestClientService :: URI: ", uri)
+    //console.debug("RestClientService :: URI: ", uri)
     var _this = this;
     var jwt = localStorage.getItem('jwt');
     var auth = jwt ? 'JWT '+jwt : 'null';

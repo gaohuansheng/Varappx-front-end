@@ -68,6 +68,7 @@ var Filters = React.createClass({
 
     /* When filters change, query new variants, then update the view */
     _onDataChange: function() {
+        console.debug("Filters: trigger DataChange")
         this.setState({
             filterByGroup: FilterStore.getFilterCollection().byGroup(),
             count: FilterStore.getFilterCollection().getCounts(),
@@ -99,6 +100,7 @@ var Filters = React.createClass({
         /* Build a list of FilterGroups */
         var groupElements = _.map(_this.state.filterByGroup, function (group, i) {
             var filters = _.map(group.filters, function (of, idx) {
+                //console.log(of,idx);
                 var e = React.createElement(filterClass[of.type], {
                     key: 'filter-' + group.name + '-' + idx,
                     idxFilter: idx,

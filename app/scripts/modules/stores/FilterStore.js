@@ -12,6 +12,7 @@ var _ = require('lodash');
 var toastr = require('toastr');
 
 
+
 /**
  * This store describes the content of the Filter selectors.
  * Its internal data consists of a collection of filters and their parameters,
@@ -95,10 +96,12 @@ class FilterStore extends BaseStore {
      * @params: as returned by the router, a list ['filter=dbsnp=1', 'filter=frequency<2', ...]
      **/
     init(db, params) {
+        console.log('filterstore init')
         _filterCollection = initFilterCollection();
         this._db = db;
         this._filtersChanged = true;
         /* Restore filters params from given URL */
+        console.log('init params:',params)
         if (params) {
             var parsed = this.parseQueryString(params);
             parsed = this.validateFilters(parsed);
@@ -115,7 +118,7 @@ class FilterStore extends BaseStore {
         }*/
         /* Some must have a value anyways */
         if (_filterCollection.getValue('genotype') === undefined) {
-            _filterCollection.setValue('genotype', 'active');
+            _filterCollection.setValue('genotype', 'none');
         }
         this.updateGlobalStats();
     }
@@ -153,6 +156,7 @@ class FilterStore extends BaseStore {
      * not allowed with Flux, but in this case is harmless and practical.
      **/
     updateOneFilterValue(field, value) {
+        console.log('updating ',field,value)
         if (_filterCollection.getValue(field) !== value) {
             _filterCollection.setValue(field, value);
         }
@@ -163,6 +167,7 @@ class FilterStore extends BaseStore {
      *   either because of a filter change or a change in samples selection.
      **/
     _registerToActions(payload) {
+        //console.log('filterstore is watching ',payload.actionType)
         switch (payload.actionType) {
 
             case FilterConstants.ACTION_FETCH_GLOBAL_STATS:
@@ -206,7 +211,6 @@ class FilterStore extends BaseStore {
 
             case VariantConstants.ACTION_FETCH_VARIANTS:
                 if (payload.state === ApiConstants.SUCCESS) {
-                    console.log("FilterStore :: ACTION_FETCH_VARIANTS (get stats)");
                     this.updateLocalStats(payload.data.stats);
                     this._filtersChanged = false;
                     this.emitChange();
@@ -216,7 +220,28 @@ class FilterStore extends BaseStore {
             /* These actions trigger a variants query */
 
             case FilterConstants.ACTION_UPDATE_ONE_FILTER_VALUE:
+                var VStorge = require('./VariantStore')
                 this.updateOneFilterValue(payload.field, payload.value);
+                console.log('after',VStorge)
+                this._filtersChanged = true;
+                this.emitChange();
+                break;
+
+            case FilterConstants.UPDATE_FILTERS_WITH_PATNELS:
+                var VStorge = require('./VariantStore');
+                var filters_list = this.parseQueryString(VStorge.data.filters);
+                //console.log(VStorge);
+                for (var x= 0;x<filters_list.length;x++){
+
+                    //console.log(filters_list[x][0].substring(7))
+                    var filed=filters_list[x][0].substring(7)
+                    var value = filters_list[x][2].replace('[None]','pass,PASS').replace(/[{}' \[\]]/g,'')
+                    if (value === 'True' || value ==='False'){
+                        value = Boolean(value.toLowerCase())
+                    };
+                    console.log('UPDATE_FILTERS_WITH_PATNELS',filed,value);
+                    this.updateOneFilterValue(filed,value)
+                }
                 this._filtersChanged = true;
                 this.emitChange();
                 break;

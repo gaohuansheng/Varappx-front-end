@@ -24,9 +24,17 @@ class GenotypesFilter extends React.Component {
     }
 
     onChange(e) {
+        console.log('onchange')
         var value = e.target.value;
         this.setState({value: value});  // change checked state right away
+        FilterActions.filtersReset()
         FilterActions.updateOneFilterValue(this.props.field, value);
+        if (value !== 'none') {
+        setTimeout(function(){
+            FilterActions.updateOtherFilters();}
+        ,500);
+        };
+
     }
 
     render() {
@@ -36,7 +44,7 @@ class GenotypesFilter extends React.Component {
             .map(function (Filterpanel) {
                 var key = _this.props.name + '-' + Filterpanel;
                 var checked = value === Filterpanel;
-                console.log(value);
+                //console.log(value);
                 return (
                     <div className="genotypes-filter-choices" key={key}>
                         {/*<div className="filter-name genotypes-filter-name">{nameStr}</div>*/}

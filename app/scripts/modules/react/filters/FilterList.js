@@ -58,6 +58,12 @@ var filters = [
     },
     {
         group: IMPACT_GROUP,
+        name: 'Splicing',
+        field: 'is_splicing',
+        type: FilterConstants.FILTER_TYPE_TRUE_FALSE_ANY
+    },
+    {
+        group: IMPACT_GROUP,
         name: 'Impact',
         field: 'impact',
         type: FilterConstants.FILTER_TYPE_ENUM
@@ -213,6 +219,12 @@ var filters = [
         group: PATHOGENICITY_GROUP,
         name: 'Sift pred',
         field: 'sift_pred',
+        type: FilterConstants.FILTER_TYPE_ENUM,
+    },
+    {
+        group: PATHOGENICITY_GROUP,
+        name: 'Clinvar sig',
+        field: 'clinvar_sig',
         type: FilterConstants.FILTER_TYPE_ENUM,
     },
     {

@@ -171,6 +171,7 @@ var formatHGVS = function(v, field, variant) {  // v: ENST00000367081.3:c.34-26A
 
 /* Round to 3 significant digits, or use exp notation if too big/too small */
 var formatScientific = function(v) {
+    //console.log(Array(v.split(',')))
     if (v === null) {
         return '';
     } else if (v === 0) {
@@ -185,6 +186,43 @@ var formatScientific = function(v) {
         return roundSignif(v, 3);
     }
 };
+/* Define the view of SAF or AF in VarappX view. */
+var formatAF = function(v){
+    if (v === null || v === undefined || v === 'nan') {
+        return 'No value';
+    } else if (v.split(',').length === 1) {
+        var k = v.split(',')
+        return roundSignif(k[0])
+    } else if (v.split(',').length === 2) {
+        var k = v.split(',')
+        var k2 = new Array()
+        for (var i in k){
+            //console.log(roundSignif(k[i],3))
+            k[i] = roundSignif(k[i],3)
+        }
+        return k.join(' ; ')
+    }
+};
+/* Define the view of SAD or AD in VarappX view.
+* There will be two situations, one is length =2 ,another is length =4*/
+
+var formatAD = function(v){
+    //console.log(v);
+    if (v === null || v === undefined || v == 'nan') {
+        return 'No value';
+    } else if (v.split(',').length ===2) {
+        var k = v.split(',')
+        return k.join(' , ')
+    } else if (v.split(',').length ===4) {
+        var k = v.split(',')
+        var k1 = k.slice(0,2).join(' , ')
+        var k2 = k.slice(2,4).join(' , ')
+        return k1+' ; '+ k2
+    }
+};
+
+
+
 /* Special case of the above for frequencies: -1 means no frequency */
 var formatFrequency = function(v) {
     var f = parseFloat(v);
@@ -292,6 +330,8 @@ module.exports = {
     formatInteger,
     formatSex,
     enumElem,
+    formatAF,
+    formatAD,
 
     formatPosition,
     formatQuality,

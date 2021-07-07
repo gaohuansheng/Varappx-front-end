@@ -17,5 +17,6 @@ module.exports = keyMirror({
     FILTER_TYPE_GENOTYPES: null,
     FILTER_TYPE_ONE_CHOICE: null,
     COUNT_TOTAL: null,
-    COUNT_FILTERED: null
+    COUNT_FILTERED: null,
+    UPDATE_FILTERS_WITH_PATNELS: null
 });

@@ -23,6 +23,7 @@ var VariantActions = require('../actions/VariantActions');
 var FilterActions = require('../actions/FilterActions');
 
 
+
 /**
  * Stores what is common to the dispaly of all submodules (filters, samples, variants, log),
  * for instance the current database in use.
@@ -99,6 +100,7 @@ class AppStore extends BaseStore {
     }
 
     _registerToActions(payload) {
+        //console.log(payload)
         switch (payload.actionType) {
 
             case LoginConstants.ACTION_LOGOUT_USER:

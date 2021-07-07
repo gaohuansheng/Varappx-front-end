@@ -94,11 +94,11 @@ class IgvWindow extends React.Component {
             return;
         }
         else if (IgvStore.getStatus() === ApiConstants.SUCCESS && variant === null) {
-            logActions.sendSuccess("Connected to BAM server at "+ window.CONFIG.BAM_SERVER_URL);
+            //logActions.sendSuccess("Connected to BAM server at "+ window.CONFIG.BAM_SERVER_URL);
             return;
         }
         else if (IgvStore.getStatus() === ApiConstants.ERROR && variant === null) {
-            logActions.sendWarning("Could not connect to BAM server at "+ window.CONFIG.BAM_SERVER_URL);
+            //logActions.sendWarning("Could not connect to BAM server at "+ window.CONFIG.BAM_SERVER_URL);
             this._close();
             return;
         }
@@ -111,7 +111,7 @@ class IgvWindow extends React.Component {
         var samples = SamplesStore.getSamplesCollection().getActiveSamples();
         var bamSamples = _.filter(samples, 'bam');
         if (bamSamples.length === 0) {
-            logActions.sendWarning("None of the selected samples has a corresponding key to a BAM file in the database.");
+            //logActions.sendWarning("None of the selected samples has a corresponding key to a BAM file in the database.");
             return;
         }
         if (bamSamples.length > 6) {
